@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GnalLang">
+    <output-path>$PROJECT_DIR$/out/artifacts/GnalLang</output-path>
+    <root id="archive" name="GnalLang.jar">
+      <element id="extracted-dir" path="$USER_HOME$/Dropbox/Programs/JARs/ZenithParsingEngine.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
