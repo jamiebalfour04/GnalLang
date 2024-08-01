@@ -11,18 +11,18 @@ public class GnalCompiler {
 
   public AST compile(){
     AST output = new AST();
-    AST current = output.next;
+    AST current = output;
     parser.getNextSymbol();
     while(parser.hasNext() && parser.getCurrentSymbol() != -128){
 
-      current = compile_next();
+      current.next = compile_next();
 
       parser.getNextSymbol();
       current = current.next;
 
     }
 
-    return output;
+    return output.next;
   }
 
   private AST compile_next(){
@@ -53,6 +53,7 @@ public class GnalCompiler {
 
     parser.getNextSymbol();
     node.value = compile_next();
+
 
     return node;
   }

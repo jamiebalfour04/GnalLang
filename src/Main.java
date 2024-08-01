@@ -10,7 +10,7 @@ public class Main {
       if(new File(args[0]).exists()){
 
         try {
-          new GnalCompiler(Files.readString(new File(args[0]).toPath(), StandardCharsets.UTF_8)).compile();
+          new GnalRuntime(Files.readString(new File(args[0]).toPath(), StandardCharsets.UTF_8));
         } catch (IOException e) {
           throw new RuntimeException(e);
         }
