@@ -24,6 +24,14 @@ public class GnalRuntime {
       return a.value;
     } else if (a.type == GnalTokens.NUMBER_TYPE){
       return a.value;
+    } else if (a.type == GnalTokens.ADD){
+      return Double.parseDouble(a.left.value.toString()) + Double.parseDouble(a.middle.value.toString());
+    } else if (a.type == GnalTokens.SUBTRACT){
+      return Double.parseDouble(a.left.value.toString()) - Double.parseDouble(a.middle.value.toString());
+    } else if (a.type == GnalTokens.MULTIPLY){
+      return Double.parseDouble(a.left.value.toString()) * Double.parseDouble(a.middle.value.toString());
+    } else if (a.type == GnalTokens.DIVIDE){
+      return Double.parseDouble(a.left.value.toString()) / Double.parseDouble(a.middle.value.toString());
     }
 
     return null;

@@ -1,2 +1,4 @@
 print "Hello there world and welcome to GnalLang"
 print "GnalLang is very, very simple and is just a demo of what you can do very easily"
+print 5 + 5
+print 3 * 9

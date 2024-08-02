@@ -32,6 +32,9 @@ public class GnalCompiler {
     if(parser.getCurrentSymbol() == GnalTokens.PRINT){
       return compile_print();
     }
+    if(parser.getCurrentSymbol() == GnalTokens.NUMBER_TYPE && (parser.peekAhead() == GnalTokens.ADD || parser.peekAhead() == GnalTokens.SUBTRACT || parser.peekAhead() == GnalTokens.MULTIPLY || parser.peekAhead() == GnalTokens.DIVIDE)){
+      return compile_mathematical_expression();
+    }
 
     //This will crash it, but that's fine
     return null;
@@ -54,6 +57,33 @@ public class GnalCompiler {
     parser.getNextSymbol();
     node.value = compile_next();
 
+
+    return node;
+  }
+
+  private AST compile_mathematical_expression(){
+    AST node = new AST();
+
+    node.left = new AST();
+    node.left.type = GnalTokens.NUMBER_TYPE;
+
+    node.left.value = parser.getCurrentWord();
+
+    parser.getNextSymbol();
+
+    node.type = parser.getCurrentSymbol();
+
+    parser.getNextSymbol();
+
+    if(parser.getCurrentSymbol() != GnalTokens.NUMBER_TYPE){
+      System.err.println("Incorrect data type in mathematical expression");
+      System.exit(1);
+    }
+
+    node.middle = new AST();
+    node.middle.type = GnalTokens.NUMBER_TYPE;
+
+    node.middle.value = parser.getCurrentWord();
 
     return node;
   }
