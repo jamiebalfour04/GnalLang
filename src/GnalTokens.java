@@ -59,7 +59,7 @@ public class GnalTokens implements Tokeniser {
 
   @Override
   public String delimiterCharacters() {
-    return " +-*/";
+    return " +-*/\r\n" + System.lineSeparator();
   }
 
   @Override
