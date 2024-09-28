@@ -83,10 +83,10 @@ public class GnalTokens implements Tokeniser {
   }
 
   @Override
-  public ArrayList<ZenithParsingEngine.MultilineComment> listOfComments() {
-    ArrayList<ZenithParsingEngine.MultilineComment> a = new ArrayList<>();
-    a.add(new ZenithParsingEngine.MultilineComment("/*", "*/"));
-    a.add(new ZenithParsingEngine.MultilineComment("//", System.lineSeparator()));
+  public ArrayList<ZenithParsingEngine.ZPEComment> listOfComments() {
+    ArrayList<ZenithParsingEngine.ZPEComment> a = new ArrayList<>();
+    a.add(new ZenithParsingEngine.ZPEComment("/*", "*/"));
+    a.add(new ZenithParsingEngine.ZPEComment("//", System.lineSeparator()));
     return a;
   }
 }
